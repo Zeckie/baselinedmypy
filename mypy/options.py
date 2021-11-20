@@ -46,9 +46,11 @@ PER_MODULE_OPTIONS: Final = {
     "ignore_missing_imports",
     "implicit_reexport",
     "local_partial_types",
+    "infer_function_types",
     "mypyc",
     "no_implicit_optional",
     "nonlocal_partial_types",
+    "incomplete_is_typed",
     "show_none_errors",
     "strict_concatenate",
     "strict_equality",
@@ -81,6 +83,8 @@ class Options:
     def __init__(self) -> None:
         # Cache for clone_for_module()
         self._per_module_cache: dict[str, Options] | None = None
+        # Despite the warnings about _per_module_cache being slow, this one might be good
+        self._final_per_module_cache: dict[str, Options] = {}
 
         # -- build options --
         self.build_type = BuildType.STANDARD
@@ -126,8 +130,10 @@ class Options:
         self.baseline_format = "default"
         self.auto_baseline = True
         self.default_return = False
+        self.infer_function_types = flip_if_not_based(True)
         self.targets: list[str] = []
         self.ignore_any_from_error = True
+        self.incomplete_is_typed = flip_if_not_based(False)
 
         # disallow_any options
         self.disallow_any_generics = flip_if_not_based(True)
@@ -454,7 +460,9 @@ class Options:
         # If the module just directly has a config entry, use it.
         if module in self._per_module_cache:
             self.unused_configs.discard(module)
-            return self._per_module_cache[module]
+            result = self._per_module_cache[module]
+            self._final_per_module_cache[module] = result
+            return result
 
         # If not, search for glob paths at all the parents. So if we are looking for
         # options for foo.bar.baz, we search foo.bar.baz.*, foo.bar.*, foo.*,
@@ -481,7 +489,8 @@ class Options:
         # We could update the cache to directly point to modules once
         # they have been looked up, but in testing this made things
         # slower and not faster, so we don't bother.
-
+        # BASED: We cache it anyway, so.
+        self._final_per_module_cache[module] = options
         return options
 
     def compile_glob(self, s: str) -> Pattern[str]:
@@ -502,3 +511,6 @@ class Options:
                 val = sorted([code.code for code in val])
             result[opt] = val
         return result
+
+    def per_module(self, module: str) -> "Options":
+        return self._final_per_module_cache.get(module, self)
