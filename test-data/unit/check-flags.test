@@ -1441,7 +1441,8 @@ def f(c: C):
 [out]
 
 [case testCheckAllowAnyGenericAnyGeneric]
-# flags: --strict --allow-any-generics
+-- maybe a little useless because theres no strict but w/e
+# flags: --allow-any-generics
 from typing import TypeVar, Callable
 
 T = TypeVar('T')
@@ -1463,7 +1464,8 @@ def f(c: C):  # E: Missing type parameters for generic type "C"
 [out]
 
 [case testStrictAnyGeneric]
-# flags: --strict
+-- maybe a little useless because theres no strict but w/e
+# flags: --disallow-any-generics
 from typing import TypeVar, Generic
 
 T = TypeVar('T')
@@ -1477,6 +1479,7 @@ def f(c: A) -> None:  # E: Missing type parameters for generic type "A"
 
 [case testStrictInConfigAnyGeneric]
 # flags: --config-file tmp/mypy.ini
+-- maybe a little useless because theres no strict but w/e
 from typing import TypeVar, Generic
 
 T = TypeVar('T')
@@ -1488,7 +1491,7 @@ def f(c: A) -> None:  # E: Missing type parameters for generic type "A"
     pass
 [file mypy.ini]
 \[mypy]
-strict = True
+disallow_any_generics = True
 [out]
 
 
@@ -1506,7 +1509,7 @@ def f(c: A) -> None:  # E: Missing type parameters for generic type "A"
 
 [file pyproject.toml]
 \[tool.mypy]
-strict = true
+disallow_any_generics = true
 
 [out]
 
@@ -1529,6 +1532,7 @@ strict = False
 
 
 [case testStrictFalseInConfigAnyGenericPyProjectTOML]
+-- maybe a little useless because theres no strict but w/e
 # flags: --config-file tmp/pyproject.toml
 from typing import TypeVar, Generic
 
@@ -1548,7 +1552,8 @@ strict = false
 
 
 [case testStrictAndStrictEquality]
-# flags: --strict
+-- maybe a little useless because theres no strict but w/e
+# flags: --strict-equality
 x = 0
 y = ''
 if x == y:  # E: Non-overlapping equality check (left operand type: "int", right operand type: "str")
