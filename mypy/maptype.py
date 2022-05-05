@@ -11,6 +11,7 @@ from mypy.types import (
     Type,
     TypeOfAny,
     TypeVarId,
+    UntypedType,
     get_proper_type,
     has_type_vars,
 )
@@ -110,7 +111,7 @@ def map_instance_to_direct_supertypes(instance: Instance, supertype: TypeInfo) -
     else:
         # Relationship with the supertype not specified explicitly. Use dynamic
         # type arguments implicitly.
-        any_type = AnyType(TypeOfAny.unannotated)
+        any_type = UntypedType()
         return [Instance(supertype, [any_type] * len(supertype.type_vars))]
 
 
