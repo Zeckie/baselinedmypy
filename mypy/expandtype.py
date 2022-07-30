@@ -90,6 +90,7 @@ def freshen_function_type_vars(callee: F) -> F:
             # TODO(PEP612): fix for ParamSpecType
             if isinstance(v, TypeVarType):
                 tv: TypeVarLikeType = TypeVarType.new_unification_variable(v)
+                tv.upper_bound = expand_type(tv.upper_bound, tvmap)
             elif isinstance(v, TypeVarTupleType):
                 assert isinstance(v, TypeVarTupleType)
                 tv = TypeVarTupleType.new_unification_variable(v)
