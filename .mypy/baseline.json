@@ -7297,9 +7297,9 @@
         "target": "mypy.dmypy_server.get_meminfo"
       },
       {
-        "code": "unused-ignore",
+        "code": "ignore-without-code",
         "column": -1,
-        "message": "Unused \"type: ignore\" comment",
+        "message": "\"type: ignore\" comment without error code (consider \"type: ignore[import]\" instead)",
         "offset": 2,
         "target": null
       },
@@ -7313,8 +7313,29 @@
       {
         "code": "no-any-expr",
         "column": 18,
-        "message": "Expression type contains \"Any\" (has type \"pmem\")",
-        "offset": 6,
+        "message": "Expression has type \"Any (from unimported type)\"",
+        "offset": 5,
+        "target": "mypy.dmypy_server.get_meminfo"
+      },
+      {
+        "code": "no-any-expr",
+        "column": 18,
+        "message": "Expression has type \"Any (from unimported type)\"",
+        "offset": 0,
+        "target": "mypy.dmypy_server.get_meminfo"
+      },
+      {
+        "code": "no-any-expr",
+        "column": 18,
+        "message": "Expression has type \"Any (from unimported type)\"",
+        "offset": 1,
+        "target": "mypy.dmypy_server.get_meminfo"
+      },
+      {
+        "code": "no-any-expr",
+        "column": 18,
+        "message": "Expression has type \"Any (from unimported type)\"",
+        "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
       {
@@ -7327,21 +7348,21 @@
       {
         "code": "no-any-expr",
         "column": 32,
-        "message": "Expression type contains \"Any\" (has type \"pmem\")",
+        "message": "Expression has type \"Any (from unimported type)\"",
         "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
       {
         "code": "no-any-expr",
         "column": 32,
-        "message": "Expression has type \"Any\"",
+        "message": "Expression has type \"Any (from unimported type)\"",
         "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
       {
         "code": "no-any-expr",
         "column": 32,
-        "message": "Expression has type \"Any\"",
+        "message": "Expression has type \"Any (from unimported type)\"",
         "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
@@ -7355,21 +7376,21 @@
       {
         "code": "no-any-expr",
         "column": 32,
-        "message": "Expression type contains \"Any\" (has type \"pmem\")",
+        "message": "Expression has type \"Any (from unimported type)\"",
         "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
       {
         "code": "no-any-expr",
         "column": 32,
-        "message": "Expression has type \"Any\"",
+        "message": "Expression has type \"Any (from unimported type)\"",
         "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
       {
         "code": "no-any-expr",
         "column": 32,
-        "message": "Expression has type \"Any\"",
+        "message": "Expression has type \"Any (from unimported type)\"",
         "offset": 0,
         "target": "mypy.dmypy_server.get_meminfo"
       },
