@@ -1,16 +1,12 @@
 Credits
 -------
 
-We would like to thank the core basedmypy team:
+For a full list of contributors (mostly to the upstream projects) you can mine the commit history:
+https://github.com/Zeckie/baselinedmypy/commits/master
 
-  KotlinIsland
-  DetachHead
 
 Mypy Credits
 ------------
-
-For a full list of contributors you can mine the commit history:
-https://github.com/python/mypy/commits/master
 
 For lists of contributors per mypy release (including typeshed) see
 the release blog posts at https://mypy-lang.blogspot.com/.
