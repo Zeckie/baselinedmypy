@@ -5,7 +5,10 @@ labels: "bug"
 body:
   - type: textarea
     attributes:
-      label: Describe the problem, ie expected/actual result (if it's not blatantly obvious)
+      label: Describe the problem, including the expected/actual result (if it's not blatantly obvious)
+      description: >
+        Also, what steps you have tried to isolate or resolve the issue, and why do you think the issue is with
+        BaselinedMypy and not an upstream project?
   - type: textarea
     attributes:
       label: Gist to reproduce
@@ -18,8 +21,8 @@ body:
       value: "# Your Environment"
   - type: textarea
     attributes:
-      label: Basedmypy version
-      description: output of `mypy --version`
+      label: BaselinedMypy version
+      description: full output from `mypy --version`
   - type: input
     attributes:
       label: Command-line flags
@@ -32,4 +35,4 @@ body:
   - type: input
     attributes:
       label: Operating system and version
-      description: Linux/macOS/Windows/wsl etc
+      description: Windows/Android/Ubuntu/macOS etc

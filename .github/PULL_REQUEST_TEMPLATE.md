@@ -1,1 +1,1 @@
-Please include an amongus reference in this PR.
+Please include a link to the issue this PR is addressing.
