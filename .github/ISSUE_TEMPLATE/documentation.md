@@ -4,4 +4,4 @@ about: Report a problem with the documentation
 labels: "documentation"
 ---
 
-(A clear and concise description of the issue.)
+(A clear and concise description of the issue, including a link to the document.)

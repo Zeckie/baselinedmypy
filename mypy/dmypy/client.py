@@ -42,7 +42,7 @@ parser.add_argument(
     "-V",
     "--version",
     action="version",
-    version=f"Basedmypy Daemon {__based_version__}\n" f"Based on %(prog)s {__version__}",
+    version=f"BaselinedMypy Daemon {__based_version__}\n" f"Based on %(prog)s {__version__}",
     help="Show program's version number and exit",
 )
 subparsers = parser.add_subparsers()

@@ -341,9 +341,9 @@ HEADER: Final = """%(prog)s [-h] [-v] [-V] [more options; see below]
 
 
 DESCRIPTION: Final = """
-Basedmypy is a program that will type check your Python code.
+BaselinedMypy is an experimental fork of basedmypy, which is forked
+ from Mypy.
 
-Based? Based on what?
 
 Mypy is a program that will type check your Python code.
 
@@ -546,14 +546,14 @@ def process_options(
         "--version",
         action=CapturableVersionAction,
         version=(
-            f"basedmypy {__based_version__} (compiled: {compilation_status})\n"
+            f"baselinedmypy {__based_version__} (compiled: {compilation_status})\n"
             f"Based on %(prog)s {__version__}"
         ),
         help="Show program's version number and exit",
         stdout=stdout,
     )
 
-    based_group = parser.add_argument_group(title="Based functionality arguments")
+    based_group = parser.add_argument_group(title="Baseline related functionality arguments")
     based_group.add_argument(
         "--write-baseline",
         action="store_true",
