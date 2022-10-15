@@ -5,7 +5,7 @@ labels: "crash"
 body:
   - type: dropdown
     attributes:
-      label: Is this crash exclusive to basedmypy, or does it also occur with mypy?
+      label: Is this crash exclusive to BaselinedMypy or does it also occur with basedmypy or mypy?
       options: [yes, no]
   - type: textarea
     attributes:
@@ -28,7 +28,7 @@ body:
       value: "# Your Environment"
   - type: textarea
     attributes:
-      label: Basedmypy version
+      label: BaselinedMypy version
       description: output of `mypy --version`
   - type: input
     attributes:
@@ -42,4 +42,4 @@ body:
   - type: input
     attributes:
       label: Operating system and version
-      description: Linux/macOS/Windows/wsl etc
+      description: Windows/Android/Ubuntu/macOS etc

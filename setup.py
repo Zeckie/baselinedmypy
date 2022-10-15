@@ -22,39 +22,15 @@ from setuptools.command.build_py import build_py
 
 from mypy.version import __based_version__, __version__, based_version_info
 
-description = "Based static typing for Python"
+description = "Baselined static typing for Python"
 long_description = """
-Basedmypy -- Based Static Typing for Python
+BaselinedMypy -- Baselined Static Typing for Python, based on basedmypy
 ===========================================
 
-Ever tried to use pythons type system and thought to yourself "This doesn't seem based".
+Ever tried to use basedmypy, and thought to yourself "How do I track the baselined errors"?
 
-Well fret no longer as basedmypy got you covered!
+Well unfortunately, BaselinedMypy isn't quite ready yet!
 
-Baseline
---------
-
-Basedmypy has baseline, baseline is based! It allows you to adopt new features from basedmypy
-without the burden of fixing up every usage, just save all current errors to the baseline
-file and deal with them later.
-
-.. code-block:: python
-
-    def foo(a):
-        print(a)
-
-.. code-block:: bash
-
-    > mypy .
-    error: missing typehints !!!!!
-    Epic fail bro!
-
-    > mypy --write-baseline .
-    error: missing typehints
-    Baseline successfully saved!
-
-    > mypy .
-    Looks good to me, no errors!
 """.lstrip()
 
 
@@ -210,11 +186,11 @@ classifiers = [
 ]
 
 setup(
-    name="basedmypy",
+    name="baselinedmypy",
     version=__based_version__,
     description=description,
     long_description=long_description,
-    author="KotlinIsland",
+    author="Zeckie",
     license="MIT License",
     py_modules=[],
     ext_modules=ext_modules,
@@ -247,10 +223,5 @@ setup(
     },
     python_requires=">=3.7",
     include_package_data=True,
-    project_urls={
-        "News": "https://github.com/KotlinIsland/basedmypy/releases",
-        "Documentation": "https://github.com/KotlinIsland/basedmypy/wiki",
-        "Repository": "https://github.com/KotlinIsland/basedmypy",
-        "Discord": "https://discord.gg/7y9upqPrk2",
-    },
+    project_urls={"Repository": "https://github.com/Zeckie/baselinedmypy"},
 )
