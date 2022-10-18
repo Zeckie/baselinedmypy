@@ -172,7 +172,8 @@ def foo(a="1") -> None:
 reveal_type(foo)  # N: Revealed type is "Overload(def (a: int) -> None, def (a: str =) -> None)"
 
 
-[case testOverloadMixedPositionalKeyword]
+[case testOverloadMixedPositionalKeyword-xfail]
+# turn off for now - https://github.com/python/mypy/issues/13627 (fixed in 0.981)
 from typing import overload
 
 @overload
@@ -190,7 +191,8 @@ main:9: note: Revealed type is "int | int"
 main:10: note: Revealed type is "str"
 
 
-[case testOverloadMixedPositional]
+[case testOverloadMixedPositional-xfail]
+# turn off for now - https://github.com/python/mypy/issues/13627 (fixed in 0.981)
 from typing import overload
 
 @overload
@@ -208,7 +210,8 @@ main:9: note: Revealed type is "int | str"
 main:10: note: Revealed type is "str"
 
 
-[case testOverloadPositionalDifferentPosition]
+[case testOverloadPositionalDifferentPosition-xfail]
+# turn off for now - https://github.com/python/mypy/issues/13627 (fixed in 0.981)
 from typing import overload
 
 @overload
@@ -257,22 +260,19 @@ def f(**kwargs):  # E: Function is missing a type annotation for one or more arg
 [builtins fixtures/dict.pyi]
 
 
-[case testInferOverloadWithPositionalOnly]
+[case testInferOverloadWithPositionalOnly-xfail]
+# turn off for now - https://github.com/python/mypy/issues/13627 (fixed in 0.981)
 from typing import overload
-
 @overload
 def foo(a: int, /): ...
 @overload
 def foo(a: str, /): ...
-
 def foo(a):
     reveal_type(a)
-
 @overload
 def bar(x: int, /, b: str): ...
 @overload
 def bar(y: None, /, b: ellipsis): ...
-
 def bar(z, b):
     reveal_type(z)
     reveal_type(b)
