@@ -1,7 +1,7 @@
 -r mypy-requirements.txt
 -r build-requirements.txt
 attrs>=18.0
-black==22.6.0  # must match version in .pre-commit-config.yaml
+black==24.3.0  # must match version in .pre-commit-config.yaml
 filelock>=3.3.0,<3.4.2; python_version<'3.7'
 filelock>=3.3.0; python_version>='3.7'
 flake8==3.9.2           # must match version in .pre-commit-config.yaml
